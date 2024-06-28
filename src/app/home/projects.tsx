@@ -19,54 +19,59 @@ const projectsData: Project[] = [
     id: 1,
     title: "Portfolio",
     description: "A personal portfolio website built with React.",
-    image: "/images/projects/1.png",
+    image: "/home/portfolio.png", // Correct path from the public directory
     tag: ["All"],
-    gitUrl: "/",
+    gitUrl: "https://github.com/snehalabnave/Portfolio",
     previewUrl: "/",
   },
   {
     id: 2,
     title: "Password Generator",
     description: "A random Password generator which helps in secure login",
-    image: "/images/projects/2.png",
+    image: "/home/pass.jpg", // No image URL provided here
     tag: ["All"],
-    gitUrl: "/https://github.com/snehalabnave/Projects/tree/main/Random%20password%20generator",
+    gitUrl:
+      "https://github.com/snehalabnave/Projects/tree/main/Random%20password%20generator",
     previewUrl: "/",
   },
   {
     id: 3,
     title: "E-commerce Website",
     description: "An e-commerce application for online shopping.",
-    image: "/images/projects/3.png",
+    image: "/home/ecom.jpg", // No image URL provided here
     tag: ["All"],
-    gitUrl: "/",
+    gitUrl: "https://github.com/snehalabnave/Ecommerce-project",
     previewUrl: "/",
   },
   {
     id: 4,
     title: "Counter App with darkmode feature",
-    description: "A counter app lets users increment or decrement a number displayed on the screen, demonstrating basic UI development",
-    image: "/images/projects/4.png",
+    description:
+      "A counter app lets users increment or decrement a number displayed on the screen, demonstrating basic UI development",
+    image: "/home/counter.png", // Correct path from the public directory
     tag: ["All"],
-    gitUrl: "/https://github.com/snehalabnave/Projects/tree/main/counterapp",
+    gitUrl:
+      "https://github.com/snehalabnave/nextjs-projects/tree/main/counterdarkmode",
     previewUrl: "/",
   },
   {
     id: 5,
-    title: "BMI Calulator",
-    description: "Calculates Body Mass Index (BMI) based on height and weight, providing health insights efficiently.",
-    image: "/images/projects/5.png",
+    title: "BMI Calculator with darkmode",
+    description:
+      "Calculates Body Mass Index (BMI) based on height and weight, providing health insights efficiently.",
+    image: "/home/bmi.png", // Correct path from the public directory
     tag: ["All"],
-    gitUrl: "/",
+    gitUrl: "https://github.com/snehalabnave/nextjs-projects",
     previewUrl: "/",
   },
   {
     id: 6,
     title: "Notivos",
-    description: "NOTIVOS is a notepad for us to right down notes ,you can add or delete if you want. This app has been created by using reactjs technology.",
-    image: "/images/projects/6.png",
+    description:
+      "NOTIVOS is a notepad for us to right down notes ,you can add or delete if you want. This app has been created by using reactjs technology.",
+    image: "/home/note.png", 
     tag: ["All", "Web"],
-    gitUrl: "/https://github.com/snehalabnave/Notivos-reactjsproj",
+    gitUrl: "https://github.com/snehalabnave/Notivos-reactjsproj",
     previewUrl: "/",
   },
 ];
@@ -90,11 +95,28 @@ const ProjectsSection: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="bg-gradient-to-b from-gray-700 to-gray-900 py-12">
-      <h2 className="text-center text-4xl font-bold text-white mb-8 md:mb-12">
+    <section id="projects" className="bg-gradient-to-b from-black to-gray-900 py-8">
+      <motion.h2 
+    initial={{ opacity: 0, x: -100 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{
+      delay: 0.2,
+      x: { type: 'spring', stiffness: 30 },
+      opacity: { duration: 0.5 },
+      ease: 'easeInOut',
+    }} className="text-center text-6xl font-mono font-semibold text-white md:mb-8">
         My Projects
-      </h2>
-      <div className="text-white flex flex-row justify-center items-center gap-4 py-6">
+      </motion.h2>
+      <motion.div
+    initial={{ opacity: 0, x: -100 }}
+    whileInView={{ opacity: 1, x: 0 }}
+    transition={{
+      delay: 0.2,
+      x: { type: 'spring', stiffness: 30 },
+      opacity: { duration: 0.5 },
+      ease: 'easeInOut',
+    }} 
+           className="text-white flex flex-row justify-center items-center mb-5 py-2">
         {["All"].map((name) => (
           <ProjectTag
             key={name}
@@ -103,7 +125,7 @@ const ProjectsSection: React.FC = () => {
             isSelected={tag === name}
           />
         ))}
-      </div>
+      </motion.div>
       <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12 px-4">
         {filteredProjects.map((project, index) => (
           <motion.li

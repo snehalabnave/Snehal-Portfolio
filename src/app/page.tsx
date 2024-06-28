@@ -1,18 +1,18 @@
 import React from 'react'
 import Hero from './home/Hero'
-import Workexp from './home/Workexp'
-import Projects from './home/projects'
 import Skills from './home/skills'
-import Workwithme from './home/workwithme'
+import Projects from './home/projects'
+import Workexp from './home/Workexp'
+import Footer from './home/footer'
 
 export default function Home() {
   return (
-    <div>
+    <div className='overflow-hidden'>
       <Hero />
       <Skills />
       <Projects />
       <Workexp />
-      <Workwithme />
+      <Footer />
     </div>
   )
 }

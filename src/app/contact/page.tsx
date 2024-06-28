@@ -1,11 +1,25 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import cont from '/public/home/cont.png';
+import { HiOutlineMail } from "react-icons/hi";
+import { FaPhoneAlt } from "react-icons/fa";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+
+  const handleChange = (e: { target: { name: any; value: any; }; }) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, x: 100 }}
@@ -16,9 +30,9 @@ export default function Contact() {
         opacity: { duration: 0.6 },
         ease: 'easeInOut',
       }}
-      className="bg-black max-h-screen flex items-center"
+      className="bg-gradient-to-t from-black to-gray-800 font-serif min-h-screen flex items-center"
     >
-      <div className="container mb-20 px-6 py-20 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="container px-6 py-20 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -39,12 +53,12 @@ export default function Contact() {
                 opacity: { duration: 0.6 },
                 ease: 'easeInOut',
               }}
-              className="mt-28 px-6 py-3 text-center text-3xl font-medium text-blue-400 "
+              className="mt-4 px-6 mb-14 text-center text-5xl font-medium text-blue-400"
             >
               Contact Me
             </motion.p>
             <motion.h1
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{
                 delay: 0.5,
@@ -52,7 +66,7 @@ export default function Contact() {
                 opacity: { duration: 0.6 },
                 ease: 'easeInOut',
               }}
-              className="mt-2 text-4xl text-center font-bold text-gray-50 md:text-4xl"
+              className="mt-2 font-serif font-bold text-gray-50 md:text-2xl"
             >
               GET IN TOUCH
             </motion.h1>
@@ -65,9 +79,9 @@ export default function Contact() {
                 opacity: { duration: 0.6 },
                 ease: 'easeInOut',
               }}
-              className="mt-3 text-center text-lg text-white"
+              className="mt-3  text-lg text-white"
             >
-              Welcome! I&apos;m here and eager to connect.
+              Welcome! If you like my profile, feel free to reach out.
             </motion.p>
           </motion.div>
 
@@ -82,46 +96,128 @@ export default function Contact() {
             }}
             className="grid grid-cols-1 justify-center gap-5 mt-10 md:grid-cols-2 lg:grid-cols-2"
           >
-            <div className="transition-transform transform hover:scale-105 ">
-              <span className="inline-block p-3 ml-28 text-center text-blue-500 rounded-full bg-blue-100/80 ">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
-                  />
-                </svg>
-              </span>
-              <h2 className="mt-4 text-2xl ml-[100px] font-semibold text-white">Email</h2>
-              <p className="mt-2 text-center text-blue-300 ">snehalabnave.sae.comp@gmail.com</p>
-            </div>
-            <div className="transition-transform transform hover:scale-105">
-              <span className="inline-block p-3 ml-28 text-center text-blue-500 rounded-full bg-blue-100/80">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
-                  />
-                </svg>
-              </span>
-              <h2 className="mt-4 text-2xl text-center font-semibold text-white">Phone</h2>
-              <p className="mt-2 text-center text-blue-400">+91 9075254568</p>
-            </div>
+            <div className="transition-transform transform hover:scale-105 flex items-center">
+    <HiOutlineMail size={30} className=" text-white mr-3" />
+    <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{
+              delay: 0.2,
+              scale: { type: 'spring', stiffness: 30 },
+              opacity: { duration: 0.5 },
+              ease: 'easeInOut',
+            }}>
+      <motion.h2
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{
+              delay: 0.2,
+              scale: { type: 'spring', stiffness: 30 },
+              opacity: { duration: 0.5 },
+              ease: 'easeInOut',
+            }} className="mt-4 text-2xl text-white font-semibold">
+        Email
+      </motion.h2>
+      <motion.p
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{
+              delay: 0.2,
+              scale: { type: 'spring', stiffness: 30 },
+              opacity: { duration: 0.5 },
+              ease: 'easeInOut',
+            }} className="mt-2 text-center text-blue-300">snehalabnave.sae.comp@gmail.com</motion.p>
+    </motion.div>
+  </div>
+  <div className="transition-transform transform hover:scale-105 flex items-center">
+    <FaPhoneAlt size={30} className=" text-white mr-3" />
+    <div>
+      <motion.h2 
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{
+              delay: 0.2,
+              scale: { type: 'spring', stiffness: 30 },
+              opacity: { duration: 0.5 },
+              ease: 'easeInOut',
+            }}className="mt-4 text-2xl text-white font-semibold">
+        Phone
+      </motion.h2>
+      <motion.p 
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{
+              delay: 0.2,
+              scale: { type: 'spring', stiffness: 30 },
+              opacity: { duration: 0.5 },
+              ease: 'easeInOut',
+            }}
+             className="mt-2 text-center text-blue-400">+91 9075254568</motion.p >
+    </div>
+  </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              delay: 0.8,
+              scale: { type: 'spring', stiffness: 30 },
+              opacity: { duration: 0.6 },
+              ease: 'easeInOut',
+            }}
+            className="mt-10"
+          >
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label htmlFor="name" className="block text-white">
+                  Name
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full p-2 mt-1 border rounded-lg"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="block text-white">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full p-2 mt-1 border rounded-lg"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="block text-white">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  className="w-full p-2 mt-1 border rounded-lg"
+                  rows={4}
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                className="px-4 py-2 mt-4 text-white bg-blue-500 rounded-lg hover:bg-blue-600"
+              >
+                Send Message
+              </button>
+            </form>
           </motion.div>
         </div>
 
@@ -134,13 +230,28 @@ export default function Contact() {
             opacity: { duration: 0.6 },
             ease: 'easeInOut',
           }}
-          className="flex items-center justify-center"
+          className="flex flex-col items-center justify-center"
         >
-          <Image
-            src={cont}
-            alt="Contact Image"
-            className="rounded-lg shadow-lg"
-          ></Image>
+          <Image src={cont} alt="Contact Image" className="rounded-lg shadow-lg mb-2" />
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{
+              delay: 0.2,
+              scale: { type: 'spring', stiffness: 30 },
+              opacity: { duration: 0.5 },
+              ease: 'easeInOut',
+            }}
+             className="w-full h-64">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.243814990078!2d73.91220711470464!3d18.46931267502858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc295f5e15793c7%3A0xb2d1f6893b7f1bc7!2sGagan%20Tisha%2C%20Undri%2C%20Pune%2C%20Maharashtra%20411028%2C%20India!5e0!3m2!1sen!2sus!4v1625248395105!5m2!1sen!2sus"
+              width="100%"
+              height="120%"
+              loading="lazy"
+              className="border"
+              title="Gagan Tisha Location"
+            ></iframe>
+          </motion.div>
         </motion.div>
       </div>
     </motion.div>
