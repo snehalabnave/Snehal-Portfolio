@@ -41,7 +41,7 @@ const experiences = [
 
 export default function WorkExp() {
   return (
-    <div className='grid grid-cols-1 lg:grid-cols-3 gap-5 px-6 py-12 bg-gradient-to-t from-black to-gray-900 font-serif'>
+    <div className='md:items-center grid grid-cols-1 lg:grid-cols-3 gap-5 px-6 py-12 bg-gradient-to-t from-black to-gray-900 font-serif'>
       {/* Left Content Section */}
       <motion.div
        initial={{ opacity: 0, y: -100 }}
@@ -62,7 +62,7 @@ export default function WorkExp() {
             scale: { type: 'spring', stiffness: 30 },
             opacity: { duration: 0.9 },
             ease: 'easeInOut',
-          }} className='text-6xl md:text-6xl md:px-2 text-white text-center font-mono  lg:px-6 py-2'>WORK EXPERIENCE</motion.h1>
+          }} className='text-4xl md:text-6xl md:px-2 text-white text-center font-mono lg:px-6 py-2'>WORK EXPERIENCE</motion.h1>
         <motion.div
     initial={{ opacity: 0, x: -100 }}
     whileInView={{ opacity: 1, x: 0 }}
