@@ -77,16 +77,9 @@ const Footer: React.FC = () => {
       opacity: { duration: 0.5 },
       ease: 'easeInOut',
     }} 
-     className="space-y-4 text-sm text-white">
-            <p className="text-base font-bold tracking-wide">Contact Me</p>
+     className="space-y-2 text-sm text-white">
+            <p className="text-xl font-bold tracking-wide">Contact Me</p>
             <div className="flex items-center">
-              <p className="mr-1">Phone:</p>
-              <a
-                href="tel:+919075254568"
-                className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
-              >
-                +91 9075254568
-              </a>
             </div>
             <div className="flex items-center">
               <p className="mr-1">Email:</p>
