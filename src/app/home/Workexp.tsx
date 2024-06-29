@@ -80,7 +80,7 @@ export default function WorkExp() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className='bg-gradient-to-bl from-black to-blue-900 text-base rounded-lg overflow-hidden'
+              className='bg-gradient-to-bl from-black to-blue-900 text-base rounded-lg overflow-hidden p-4'
               
             >
              <motion.div
@@ -151,7 +151,7 @@ export default function WorkExp() {
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
-        className='relative w-full h-64 lg:h-auto mt-8 lg:mt-0'
+        className='relative w-full h-64 lg:h-auto mt-8 md:px-3 lg:mt-0'
       >
         <Image
           src={im}
