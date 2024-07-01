@@ -18,7 +18,7 @@ export default function Contact() {
         opacity: { duration: 0.6 },
         ease: 'easeInOut',
       }}
-      className="bg-gradient-to-t from-black to-gray-800 font-serif min-h-screen flex items-center"
+      className="bg-gradient-to-t from-black to-gray-800 font-serif min-h-screen flex items-center overflow-hidden"
     >
       <div className="container px-6 py-20 mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
